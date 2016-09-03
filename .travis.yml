@@ -1,4 +1,6 @@
 language: node_js
+node_js:
+  - "6"
 
 sudo: required
 dist: trusty
@@ -26,7 +28,7 @@ before_script:
   - docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build -d
 
 script:
-  - docker exec app npm run test
+  - docker exec -it app npm run test
 
 after_script:
   - docker-compose down
