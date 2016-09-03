@@ -1,0 +1,14 @@
+version: '2'
+services: 
+  app:
+    container_name: app
+    build: .
+    restart: always
+    ports: 
+      - "4000:4000"
+  db:
+    container_name: db
+    build: ./db
+    restart: always
+    ports:
+      - "27017:27017"

@@ -1,0 +1,16 @@
+version: '2'
+services: 
+  app:
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./:/usr/src/app
+    depends_on:
+      - db 
+  db:
+    volumes:
+      - devdata:/data/db
+      - ./db/config/mongod.conf:/etc/mongod.conf
+volumes:
+  devdata:
+    external: true

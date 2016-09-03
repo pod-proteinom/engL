@@ -1,0 +1,31 @@
+language: node_js
+sudo: required
+dist: trusty
+
+install:
+  # Update docker-engine using Ubuntu 'trusty' apt repo
+  - >
+    curl -sSL "https://get.docker.com/gpg" |
+     sudo -E apt-key add -
+  - >
+    echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" |
+     sudo tee -a /etc/apt/sources.list
+  - sudo apt-get update
+  - >
+    sudo apt-get -o Dpkg::Options::="--force-confdef" \
+     -o Dpkg::Options::="--force-confold" --assume-yes install docker-engine
+  - docker version
+  # Update docker-compose via pip
+  - sudo pip install docker-compose
+  - docker-compose version
+
+before_script:
+  - ./init.sh dev
+  - docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build -d
+
+script:
+  - npm run test
+
+after_script:
+  - docker-compose down
+  - docker volume rm $(docker volume ls -qf dangling=true)
