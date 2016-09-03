@@ -6,7 +6,7 @@ describe('Server response', function () {
     request.get('http://localhost:4000/', function (err, res, body) {
       if (err) throw err
       expect(res.statusCode).to.equal(200)
-      done()
+      done();
     })
   })
 })
