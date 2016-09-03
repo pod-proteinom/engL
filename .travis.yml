@@ -24,8 +24,9 @@ before_script:
   - docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build -d
 
 script:
-  - docker exec -it app npm run test
+  - docker exec --privileged -it app npm test
 
 after_script:
+  - docker logs app
   - docker-compose down
   - docker volume rm $(docker volume ls -qf dangling=true)

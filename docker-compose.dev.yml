@@ -1,7 +1,6 @@
 version: '2'
 services: 
   app:
-    privileged: true
     environment:
       - NODE_ENV=development
     volumes:
