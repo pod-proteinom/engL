@@ -20,7 +20,7 @@ install:
   - docker-compose version
 
 before_script:
-  - ./init.sh dev
+  - ./volume/init.sh dev
   - docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build -d
 
 script:
