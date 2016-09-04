@@ -21,12 +21,9 @@ install:
 before_script:
   - chmod +x ./volume/init.sh
   - ./volume/init.sh dev
-  - docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build -d
+  - docker-compose -f docker-compose.yml -f docker-compose.test.yml up --build -d
   - docker logs app
   - docker exec --privileged -it app ls
-  - docker exec --privileged -it app ls ./node_modules/.bin/
-  # - docker exec --privileged -it app ./node_modules/.bin/mocha --help
-  - docker exec --privileged -it app npm test
 
 script:
   - docker exec --privileged -it app npm test
