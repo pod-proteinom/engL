@@ -6,6 +6,8 @@ services:
     restart: always
     ports: 
       - "4000:4000"
+    environment:
+      - NODE_PATH=./app
   db:
     container_name: db
     build: ./db
