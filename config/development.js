@@ -5,7 +5,7 @@ module.exports = {
         port: '4000'
     },
     mongoose: {
-        uri: `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@db:27017`,
+        uri: `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@db:27017/`,
         options: {
             server: {
                 socketOptions: {

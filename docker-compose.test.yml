@@ -3,11 +3,7 @@ services:
   app:
     environment:
       - NODE_ENV=test
+    env_file:
+      db/auth/test.env
     depends_on:
-      - db 
-  db:
-    volumes:
-      - testdata:/data/db
-volumes:
-  testdata:
-    external: true
+      - db
