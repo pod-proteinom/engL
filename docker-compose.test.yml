@@ -1,0 +1,13 @@
+version: '2'
+services: 
+  app:
+    environment:
+      - NODE_ENV=test
+    depends_on:
+      - db 
+  db:
+    volumes:
+      - devdata:/data/db
+volumes:
+  devdata:
+    external: true
