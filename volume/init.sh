@@ -3,6 +3,8 @@ if [ "$1" == "dev" ]; then
 	VOLUME="devdata"
 elif [ "$1" == "prod" ]; then
 	VOLUME="dbdata"
+elif [ "$1" == "test" ]; then
+	VOLUME="testdata"
 else
 	exit -1
 fi

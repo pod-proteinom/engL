@@ -7,7 +7,7 @@ services:
       - db 
   db:
     volumes:
-      - devdata:/data/db
+      - testdata:/data/db
 volumes:
-  devdata:
+  testdata:
     external: true
