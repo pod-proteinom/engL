@@ -4,3 +4,5 @@ node_modules
 docker-compose.yml
 docker-compose.dev.yml
 docker-compose.prod.yml
+db/auth
+db/Dockerfile
